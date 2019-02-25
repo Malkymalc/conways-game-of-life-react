@@ -1,6 +1,5 @@
 # Conway's Game of Life (React.js)
 
-  <br />
   
 ## Introduction
 This is a refactoring of [my vanilla js implementation](https://github.com/Malkymalc/Game_of_Life) of Conway's [*Game of Life*](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
