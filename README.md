@@ -5,12 +5,12 @@
 ## Introduction
 This is a refactoring of [my vanilla js implementation](https://github.com/Malkymalc/Game_of_Life) of Conway's [*Game of Life*](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-\
+<br />
 ## Tech Stack
  - React.js ( This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) )
  - CSS3
  
-\ 
+$~$
 ## Demo
 A fully functioning version of this game can be played at [](TODO: to be added).
 
