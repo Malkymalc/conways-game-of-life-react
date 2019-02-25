@@ -3,12 +3,15 @@
 ## Introduction
 This is a refactoring of [my vanilla js implementation](https://github.com/Malkymalc/Game_of_Life) of Conway's [*Game of Life*](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
+
 ## Tech Stack
  - React.js ( This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) )
  - CSS3
  
+ 
 ## Demo
 A fully functioning version of this game can be played at [](TODO: to be added).
+
 
 ## Running this app locally
 
@@ -18,14 +21,15 @@ To run this game locally,
 3. Start the app with `npm start`
 4. For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
 
+
 ## Questions, Comments, Suggestions
 
 I'm happy to field an questions, and welcome any comments and suggestions.
 
+
 ## License
 
 TODO: add license
-
 
 
 
