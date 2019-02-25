@@ -1,7 +1,5 @@
 # Conway's Game of Life (React.js)
 
-  
-## Introduction
 This is a refactoring of [my vanilla js implementation](https://github.com/Malkymalc/Game_of_Life) of Conway's [*Game of Life*](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 <br />
@@ -17,19 +15,34 @@ A fully functioning version of this game can be played at [](TODO: to be added).
 
 <br />
 
-## Running this app locally
+## Installation / Running this app locally
 
-To run this game locally, 
+To run this game locally: 
+
 1. clone/download, or fork on github then clone this project to your local machine
-2. Navigate `cd` to the folder (e.g. `cd projects/Conways-Game-of-Life-React-` )
-3. Start the app with `npm start`
+2. Navigate to the folder
+3. Install dependencies
+3. Start the app with
 4. For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
+
+```
+git clone git@github.com:Malkymalc/conways-game-of-life-react.git
+cd conways-game-of-life-react
+npm install
+npm start
+```
 
 <br />
 
 ## Questions, Comments, Suggestions
 
 I'm happy to field an questions, and welcome any comments and suggestions.
+
+<br />
+
+## Contributing
+
+No PRs will be accepted.
 
 <br />
 
