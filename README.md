@@ -20,7 +20,6 @@ To run this game locally:
 2. Navigate to the folder
 3. Install dependencies
 3. Start the app
-(4.) For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
 
 E.g.
 
@@ -31,6 +30,7 @@ npm install
 npm start
 ```
 
+**NB** For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
 
 ## Questions, Comments, Suggestions
 
