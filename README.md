@@ -16,11 +16,13 @@ A fully functioning version of this game can be played at [](TODO: to be added).
 
 To run this game locally: 
 
-1. clone/download, or fork on github then clone this project to your local machine
+1. [clone](https://help.github.com/en/articles/cloning-a-repository) this repo to your local machine (or [fork](https://help.github.com/en/articles/fork-a-repo) on github then clone)
 2. Navigate to the folder
 3. Install dependencies
-3. Start the app with
-4. For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
+3. Start the app
+(4.) For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
+
+E.g.
 
 ```
 git clone git@github.com:Malkymalc/conways-game-of-life-react.git
@@ -37,7 +39,7 @@ I'm happy to field an questions, and welcome any comments and suggestions.
 
 ## Contributing
 
-No PRs will be accepted.
+Feel free to fork, but please note no PRs will be accepted, however do feel free to get in touch as above.
 
 
 ## License
