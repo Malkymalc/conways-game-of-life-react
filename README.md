@@ -1,10 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Conway's Game of Life (React)
 
-## Available Scripts
+## Introduction
+This is a refactoring of [my vanilla js implementation](https://github.com/Malkymalc/Game_of_Life) of Conway's [*Game of Life*](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-In the project directory, you can run:
+## Tech Stack
+ - React ( This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) )
+ - CSS3
+ 
+## Demo
+A fully functioning version of this game is hosted at [](to be added).
 
-### `npm start`
+## Running this app locally
+
+To run this game locally, 
+1. clone/download, or fork on github then clone this project to your local machine
+2. Navigate `cd` to the folder (e.g. `cd projects/Conways-Game-of-Life-React-` )
+3. Start the app with `npm start`
+4. For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme) at the bottom of this page.
+
+## License
+
+This app
+
+## [Create React App Boilerplate README]
+
+
+#### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
