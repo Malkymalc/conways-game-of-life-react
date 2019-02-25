@@ -16,13 +16,13 @@ To run this game locally,
 1. clone/download, or fork on github then clone this project to your local machine
 2. Navigate `cd` to the folder (e.g. `cd projects/Conways-Game-of-Life-React-` )
 3. Start the app with `npm start`
-4. For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme) at the bottom of this page.
+4. For further info see the [Create React App boilerplate instructions](#create-react-app-boilerplate-readme-file) at the bottom of this page.
 
 ## License
 
 This app
 
-## Create React App Boilerplate README
+## Create React App Boilerplate README file
 
 
 #### `npm start`
