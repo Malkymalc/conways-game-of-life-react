@@ -22,7 +22,7 @@ To run this game locally,
 
 This app
 
-## [Create React App Boilerplate README]
+## Create React App Boilerplate README
 
 
 #### `npm start`
