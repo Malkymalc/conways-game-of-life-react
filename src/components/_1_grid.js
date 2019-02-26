@@ -5,10 +5,14 @@ import Row from './_2_row.js';
 
 const Grid = (props) => {
 
-  const grid = this.props.grid;
-  const rows = grid.map(rowArray => <Row className='row' cells={rowArray}/>);
+  const grid = props.grid;
+  const rows = grid.map(row => <Row className='row' row={row}/>);
 
-  return (  <main className='gridDiv'>  {rows}  </main> );
+  return (
+    <main className='gridDiv'>
+      {rows}
+    </main>
+  );
 
 }
 

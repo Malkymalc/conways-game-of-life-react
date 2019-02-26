@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import '../styles/game.css'
-
 import Controls from '../components/controls.js';
 import Grid from '../components/_1_grid.js';
 import life from '../models/life.js';
 
 
-class Game extends Component{
+class Game extends Component {
 
   constructor(props){
     super(props);
@@ -52,9 +51,9 @@ class Game extends Component{
 
   render() {
     const controlFunctions = {
-      startGameCB: this.startGame,
+      startGame: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
-      resetGridCB: this.resetGrid,
+      resetGrid: this.resetGridCB,
       loadCB: this.loadCB,
       saveCB: this.saveCB
     }
@@ -67,12 +66,13 @@ class Game extends Component{
         <Controls
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
-          callBacks={this.controlFunctions}
+          callBacks={controlFunctions}
         />
         <Grid className='grid' grid={this.state.currentGrid}/>
       </div>
     );
   }
+
 }
 
 export default Game;

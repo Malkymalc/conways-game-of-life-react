@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 const Controls = (props) => {
 
-  const {startGame, pauseGame, resetGrid, load, save} = this.props.callBacks;
-  const savedGrids = this.props.savedGrids;
-
-  const options = savedGrids.map(savedGrid => {
-    return (
-      <option value={savedGrid.grid}>{savedGrid.name}</option>
-    );
-  });
+  const {startGameCB, pauseGameCB, resetGridCB, loadCB, saveCB} = props.callBacks;
+  const savedGrids = props.savedGrids;
+  //
+  // const options = savedGrids.map(savedGrid => {
+  //   return (
+  //     <option value={savedGrid.grid}>{savedGrid.name}</option>
+  //   );
+  // });
 
   return (
     <nav className='control-panel'>
@@ -18,23 +18,23 @@ const Controls = (props) => {
       <input type="number" className="control" name='cycles'/>
 
       <label htmlFor="start">Start Game</label>
-      <input type="button" className="control" name='start' onClick={startGame}/>
+      <input type="button" className="control" name='start' onClick={startGameCB}/>
 
       <label htmlFor="pause">Pause Game</label>
-      <input type="button" className="control" name='pause' onClick={pauseGame}/>
+      <input type="button" className="control" name='pause' onClick={pauseGameCB}/>
 
       <label htmlFor="reset">Reset Grid</label>
-      <input type="button" className="control" name='reset' onClick={resetGrid}/>
+      <input type="button" className="control" name='reset' onClick={resetGridCB}/>
 
 
 
-      <label htmlFor="saved_grids_selection">Select Grid</label>
-      <select name="" className='control' name='saved_grids_selection'>
+      {/* <label htmlFor="saved_grids_selection">Select Grid</label>
+        <select name="" className='control' name='saved_grids_selection'>
         {options}
-      </select>
+      </select> */}
 
       <label htmlFor="load">Load Selected Grid</label>
-      <input type="button" className="control" name='load' onClick={load}/>
+      <input type="button" className="control" name='load' onClick={loadCB}/>
 
 
 
@@ -42,12 +42,10 @@ const Controls = (props) => {
       <input type="text" className="control" name='save_name'/>
 
       <label htmlFor="save">Save Grid</label>
-      <input type="button" className="control" name='save' onClick={save}/>
+      <input type="button" className="control" name='save' onClick={saveCB}/>
     </nav>
-  )
-
+    );
 
 }
-
 
 export default Controls;
