@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/grid.css';
+import '../styles/_1_grid.css';
 
 import Row from './_2_row.js';
 

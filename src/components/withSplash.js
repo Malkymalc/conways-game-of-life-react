@@ -1,5 +1,5 @@
-import React { Component } from 'react';
-import '../styles.splash.css'
+import React, { Component } from 'react';
+import '../styles/splash.css'
 import SplashScreen from './splashScreen.js';
 
 
@@ -20,9 +20,10 @@ const withSplash = (Game) => {
       }, 1500)
     }
 
-    return (
-      loading ? <SplashScreen /> : <Game />;
-    );
+    render(){
+      return this.state.loading ? <SplashScreen /> : <Game />;
+    }
+
   }
 
 }

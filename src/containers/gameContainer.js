@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/game.css'
 
-import Controls from './components/controls.js';
-import Grid from './components/_1_grid.js';
-import life from './models/life.js'
+import Controls from '../components/controls.js';
+import Grid from '../components/_1_grid.js';
+import life from '../models/life.js';
 
 
 class Game extends Component{
@@ -21,44 +21,44 @@ class Game extends Component{
     }
   }
 
-  const cycle = () => {
+  cycle = () => {
     const newGrid = life.getNextGrid(this.state.currentGrid);
     this.setState({currentGrid: newGrid});
   }
 
-  const play = () => {
+  play = () => {
     this.setState({cycles: (this.state.cycles -1)});
   }
 
-  const startGameCB = (cyclesInput) => () => {
+  startGameCB = (cyclesInput) => () => {
     this.setState({cycles: cyclesInput})
   }
-  const pauseGameCB = () => {
+  pauseGameCB = () => {
     this.setState({play: false})
   }
-  const resetGridCB = () => {
+  resetGridCB = () => {
     this.setState({play: false, currentGrid: life.getBlankGrid()})
   }
-  const loadCB = () => {
+  loadCB = () => {
     console.log('loading selected grid');
   }
-  const saveCB = () => {
+  saveCB = () => {
     console.log('saving selected grid');
   }
-  const controlFunctions = {
-    this.startGameCB,
-    this.pauseGameCB,
-    this.resetGridCB,
-    this.loadCB,
-    this.saveCB
-  }
-
 
   componentDidMount(){
     // getSavedGames
   }
 
   render() {
+    const controlFunctions = {
+      startGameCB: this.startGame,
+      pauseGameCB: this.pauseGameCB,
+      resetGridCB: this.resetGrid,
+      loadCB: this.loadCB,
+      saveCB: this.saveCB
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -67,9 +67,9 @@ class Game extends Component{
         <Controls
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
-          functions={this.controlFunctions}
+          callBacks={this.controlFunctions}
         />
-        <Grid className='grid' grid={currentGrid}/>
+        <Grid className='grid' grid={this.state.currentGrid}/>
       </div>
     );
   }

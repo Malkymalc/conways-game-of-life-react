@@ -9,7 +9,7 @@ function getBlankGrid(xLength = 50, yLength = 50) {
 };
 
 function getNeighbourGrid(currentGrid){
-  neighbourGrid = currentGrid.map(function(row,rowIndex,grid){
+  const neighbourGrid = currentGrid.map(function(row,rowIndex,grid){
     return row.map(function(cell, cellIndex, row){
         var neighbours = 0;
         if (rowIndex != 0){
@@ -34,10 +34,10 @@ function getNeighbourGrid(currentGrid){
 };
 
 function calcNewGrid(currentGrid, neighbourGrid) {
-  newGrid = currentGrid.map(function(row, rowNum, grid){
+  const newGrid = currentGrid.map(function(row, rowNum, grid){
     return row.map(function(cell, cellNum, row){
-      alive = cell;
-      neighbours = neighbourGrid[rowNum][cellNum];
+      const alive = cell;
+      const neighbours = neighbourGrid[rowNum][cellNum];
       if (neighbours < 2) { return false; }
       else if (neighbours === 2 && alive) { return true; }
       else if (neighbours === 3 && alive) { return true; }
@@ -58,7 +58,9 @@ function getNextGrid(grid) {
 }
 
 
-export default life = {
+const life = {
   getBlankGrid,
   getNextGrid
 };
+
+export default life;

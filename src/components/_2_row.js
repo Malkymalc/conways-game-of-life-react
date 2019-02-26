@@ -4,8 +4,8 @@ import Cell from './_3_cell.js';
 
 const Row = (props) => {
 
-  const row = this.props.row;
-  const rows = grid.map(rowArray => <Cell className='cell' cells={rowArray}/>);
+  const row = this.props.rowArray;
+  const cells = row.map(cell => <Cell className='cell' cells={cell}/>);
 
   return (  <div className='rowDiv'>  {cells}  </div> );
 

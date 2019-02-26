@@ -1,10 +1,12 @@
 import React from 'react';
-import '../styles/cell.css';
+import '../styles/_3_cell.css';
 
 
 const Cell = (props) => {
 
-  return (<div className='cellDiv'> . </div>);
+  return (
+    <div className='cellDiv'> . </div>
+  );
 }
 
 export default Cell;

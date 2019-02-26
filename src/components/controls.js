@@ -1,9 +1,8 @@
 import React from 'react';
-import '../styles/cell.css';
 
 const Controls = (props) => {
 
-  const {startGame, pauseGame, resetGrid, load, save} = this.props.callbacks;
+  const {startGame, pauseGame, resetGrid, load, save} = this.props.callBacks;
   const savedGrids = this.props.savedGrids;
 
   const options = savedGrids.map(savedGrid => {
