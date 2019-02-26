@@ -23,8 +23,7 @@ const withSplash = (Game) => {
     return (
       loading ? <SplashScreen /> : <Game />;
     );
-
-
+  }
 
 }
 
