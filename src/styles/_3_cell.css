@@ -1,8 +1,7 @@
 .cellDiv {
-  width: 100%;
-  padding-top: 100%;
-  border: 0.1px solid black;
+  border: 0.1vh solid black;
   background-color: green;
+  max-height: calc(85vw/50);
 }
 
 .awake {
