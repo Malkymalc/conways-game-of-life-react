@@ -60,7 +60,7 @@ class Game extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="header">
           <h1>Conway's <em> Game of Life</em></h1>
         </header>
         <Controls
