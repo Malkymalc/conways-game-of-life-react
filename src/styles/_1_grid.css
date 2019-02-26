@@ -1,0 +1,14 @@
+.gridDiv {
+  margin: auto;
+  width: 85vw;
+  height: 85vw;
+  border: 1px solid black;
+  display: grid;
+  grid-template-rows: repeat(50, 1fr);
+}
+
+.rowDiv {
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
+  max-height: calc(85vw/50);
+}

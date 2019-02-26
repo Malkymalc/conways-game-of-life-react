@@ -1,0 +1,13 @@
+.cellDiv {
+  border: 0.1vh solid black;
+  background-color: green;
+  max-height: calc(85vw/50);
+}
+
+.awake {
+  background-color: red;
+}
+
+.asleep {
+  background-color: green;
+}
