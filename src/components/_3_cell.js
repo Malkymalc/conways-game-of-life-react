@@ -4,7 +4,7 @@ import '../styles/cell.css';
 
 const Cell = (props) => {
 
-  return (<div className='cell'> . </div>);
+  return (<div className='cellDiv'> . </div>);
 }
 
 export default Cell;

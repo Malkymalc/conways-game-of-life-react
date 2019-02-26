@@ -1,0 +1,14 @@
+.cell {
+  height: 100%;
+  width: 100%;
+  border: 0.1px solid black;
+  background-color: green;
+}
+
+.wake {
+  background-color: red;
+}
+
+.sleep {
+  background-color: green;
+}
