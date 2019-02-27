@@ -16,9 +16,26 @@ class Game extends Component {
       savedGrids: null,
       cycles: Infinity,
       currentGrid: startGrid,
-      play: false
+      play: false,
+      mouseDown: false
     }
   }
+
+
+  toggle = (x,y) => () => {
+    this.setState((currState) => {
+      const newState = [...currState];
+      const cell = newState[x][y];
+      newState[x][y] = (cell === true) ? false : true;
+      return newState;
+    });
+  }
+  mouseOver = (x,y) => () => {
+    this.state.mouseDown ? toggle(x,y)() : console.log('mouseNotDown');
+  }
+
+  mouseDown = () => this.setState({mouseDown: true});
+  mouseUp = () => this.setState({mouseDown: false});
 
   cycle = () => {
     const newGrid = life.getNextGrid(this.state.currentGrid);
@@ -50,6 +67,7 @@ class Game extends Component {
   }
 
   render() {
+
     const controlFunctions = {
       startGame: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
@@ -68,7 +86,14 @@ class Game extends Component {
           cycles={this.state.cycles}
           callBacks={controlFunctions}
         />
-        <Grid className='grid' grid={this.state.currentGrid}/>
+        <Grid
+          className='grid'
+          grid={this.state.currentGrid}
+          toggle={this.toggle}
+          mouseOver={this.mouseOver}
+          mouseDown={this.mouseDown}
+          mouseUp={this.mouseUp}
+        />
       </div>
     );
   }

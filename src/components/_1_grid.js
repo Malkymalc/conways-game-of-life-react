@@ -6,10 +6,26 @@ import Row from './_2_row.js';
 const Grid = (props) => {
 
   const grid = props.grid;
-  const rows = grid.map(row => <Row className='row' row={row}/>);
+
+  const rows = grid.map((row,i) => {
+    return (
+      <Row
+        className='row'
+        row={row}
+        rowNum={i}
+        toggle={props.toggle}
+        mouseOver={props.mouseOver}
+        key={`Row${props.rowNum}`}
+      />
+    );
+  });
 
   return (
-    <main className='gridDiv'>
+    <main
+      className='gridDiv'
+      onMouseDown={props.mouseDown}
+      onMouseUp={props.mouseUp}
+    >
       {rows}
     </main>
   );

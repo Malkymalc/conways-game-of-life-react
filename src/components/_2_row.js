@@ -4,7 +4,20 @@ import Cell from './_3_cell.js';
 const Row = (props) => {
 
   const row = props.row;
-  const cells = row.map(cellStatus => <Cell className='cell' cellStatus={cellStatus}/>);
+
+  const cells = row.map((cellStatus,i) => {
+    return (
+      <Cell
+        className='cell'
+        cellStatus={cellStatus}
+        rowNum={props.rowNum}
+        columnNum={i}
+        key={`Row${props.rowNum}Col${i}`}
+        toggle={props.toggle}
+        mouseOver={props.mouseOver}
+      />
+    );
+  });
 
   return (
     <div className='rowDiv'>
