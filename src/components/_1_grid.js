@@ -15,7 +15,7 @@ const Grid = (props) => {
         rowNum={i}
         toggle={props.toggle}
         mouseOver={props.mouseOver}
-        key={`Row${props.rowNum}`}
+        key={`Row${i}`}
       />
     );
   });

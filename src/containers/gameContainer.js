@@ -22,20 +22,24 @@ class Game extends Component {
   }
 
 
-  toggle = (x,y) => () => {
-    this.setState((currState) => {
-      const newState = [...currState];
-      const cell = newState[x][y];
-      newState[x][y] = (cell === true) ? false : true;
-      return newState;
+  toggle = (row, column) => () => {
+    this.setState((state) => {
+      const newGrid = [...state.currentGrid];
+      const cell = newGrid[row][column];
+      newGrid[row][column] = (cell === true) ? false : true;
+      return newGrid;
     });
   }
-  mouseOver = (x,y) => () => {
-    this.state.mouseDown ? toggle(x,y)() : console.log('mouseNotDown');
+  mouseOver = (row, column) => () => {
+    if (this.state.mouseDown) this.toggle(row, column)();
   }
 
-  mouseDown = () => this.setState({mouseDown: true});
-  mouseUp = () => this.setState({mouseDown: false});
+  mouseDown = () => {
+    this.setState({mouseDown: true});
+  }
+  mouseUp = () => {
+    this.setState({mouseDown: false});
+  }
 
   cycle = () => {
     const newGrid = life.getNextGrid(this.state.currentGrid);
@@ -77,7 +81,11 @@ class Game extends Component {
     }
 
     return (
-      <div className="App">
+      <div
+        className="App"
+        onMouseDown={this.mouseDown}
+        onMouseUp={this.mouseUp}
+      >
         <header className="header">
           <h1>Conway's <em> Game of Life</em></h1>
         </header>
@@ -91,8 +99,6 @@ class Game extends Component {
           grid={this.state.currentGrid}
           toggle={this.toggle}
           mouseOver={this.mouseOver}
-          mouseDown={this.mouseDown}
-          mouseUp={this.mouseUp}
         />
       </div>
     );
