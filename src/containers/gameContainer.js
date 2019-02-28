@@ -14,7 +14,7 @@ class Game extends Component {
 
     this.state = {
       savedGrids: null,
-      cycles: Infinity,
+      cycles: 20,
       currentGrid: startGrid,
       play: false,
       mouseDown: false
@@ -22,39 +22,53 @@ class Game extends Component {
   }
 
 
-  toggle = (x,y) => () => {
-    this.setState((currState) => {
-      const newState = [...currState];
-      const cell = newState[x][y];
-      newState[x][y] = (cell === true) ? false : true;
-      return newState;
-    });
-  }
-  mouseOver = (x,y) => () => {
-    this.state.mouseDown ? toggle(x,y)() : console.log('mouseNotDown');
-  }
-
-  mouseDown = () => this.setState({mouseDown: true});
-  mouseUp = () => this.setState({mouseDown: false});
-
   cycle = () => {
-    const newGrid = life.getNextGrid(this.state.currentGrid);
-    this.setState({currentGrid: newGrid});
+    setTimeout(() => {
+      const newGrid = life.getNextGrid(this.state.currentGrid);
+      this.setState({currentGrid: newGrid});
+    }, 1000);
   }
 
-  play = () => {
-    this.setState({cycles: (this.state.cycles -1)});
+
+  toggle = (row, column) => () => {
+    if (this.state.play === false){
+      this.setState((state) => {
+        const newGrid = [...state.currentGrid];
+        const cell = newGrid[row][column];
+        newGrid[row][column] = (cell === true) ? false : true;
+        return newGrid;
+      });
+    }
+  }
+  mouseOver = (row, column) => () => {
+    if (this.state.mouseDown) this.toggle(row, column)();
+  }
+  mouseDown = () => {
+    this.setState({mouseDown: true});
+  }
+  mouseUp = () => {
+    this.setState({mouseDown: false});
   }
 
-  startGameCB = (cyclesInput) => () => {
-    this.setState({cycles: cyclesInput})
+
+
+  cycleInput = (e) => {
+    this.setState({cycles: e.target.value});
+  }
+
+
+  startGameCB = () => {
+    console.log('start game firing');
+    this.setState({play: true});
   }
   pauseGameCB = () => {
-    this.setState({play: false})
+    this.setState({play: false});
   }
   resetGridCB = () => {
-    this.setState({play: false, currentGrid: life.getBlankGrid()})
+    this.setState({play: 'banana', currentGrid: life.getBlankGrid()})
   }
+
+
   loadCB = () => {
     console.log('loading selected grid');
   }
@@ -66,22 +80,37 @@ class Game extends Component {
     // getSavedGames
   }
 
+  async componentDidUpdate(){
+    console.log('cycles: ', this.state.cycles);
+    if (this.state.cycles > 0 && this.state.play === true){
+      await this.cycle();
+      const newCycles = this.state.cycles - 1;
+      this.setState({cycles: newCycles})
+    }
+  }
+
   render() {
 
     const controlFunctions = {
-      startGame: this.startGameCB,
+      cycleInput: this.cycleInput,
+      startGameCB: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
-      resetGrid: this.resetGridCB,
+      resetGridCB: this.resetGridCB,
       loadCB: this.loadCB,
       saveCB: this.saveCB
     }
 
     return (
-      <div className="App">
+      <div
+        className="App"
+        onMouseDown={this.mouseDown}
+        onMouseUp={this.mouseUp}
+      >
         <header className="header">
           <h1>Conway's <em> Game of Life</em></h1>
         </header>
         <Controls
+          cycleValue={this.state.cycles}
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
           callBacks={controlFunctions}
@@ -91,8 +120,6 @@ class Game extends Component {
           grid={this.state.currentGrid}
           toggle={this.toggle}
           mouseOver={this.mouseOver}
-          mouseDown={this.mouseDown}
-          mouseUp={this.mouseUp}
         />
       </div>
     );

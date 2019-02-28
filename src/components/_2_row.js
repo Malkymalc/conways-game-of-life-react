@@ -5,11 +5,11 @@ const Row = (props) => {
 
   const row = props.row;
 
-  const cells = row.map((cellStatus,i) => {
+  const cells = row.map((cellStatus, i) => {
     return (
       <Cell
         className='cell'
-        cellStatus={cellStatus}
+        isAwake={cellStatus}
         rowNum={props.rowNum}
         columnNum={i}
         key={`Row${props.rowNum}Col${i}`}
