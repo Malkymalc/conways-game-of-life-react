@@ -66,10 +66,10 @@ class Game extends Component {
     null;
   }
   pauseGameCB = () => {
-    this.setState({play: false})
+    this.setState({play: false});
   }
   resetGridCB = () => {
-    this.setState({play: false, currentGrid: life.getBlankGrid()})
+    this.setState({play: 'banana', currentGrid: life.getBlankGrid()})
   }
 
 
@@ -90,7 +90,7 @@ class Game extends Component {
       cycleInput: this.cycleInput,
       startGame: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
-      resetGrid: this.resetGridCB,
+      resetGridCB: this.resetGridCB,
       loadCB: this.loadCB,
       saveCB: this.saveCB
     }
