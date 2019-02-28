@@ -23,17 +23,18 @@ class Game extends Component {
 
 
   toggle = (row, column) => () => {
-    this.setState((state) => {
-      const newGrid = [...state.currentGrid];
-      const cell = newGrid[row][column];
-      newGrid[row][column] = (cell === true) ? false : true;
-      return newGrid;
-    });
+    if (this.state.play === false){
+      this.setState((state) => {
+        const newGrid = [...state.currentGrid];
+        const cell = newGrid[row][column];
+        newGrid[row][column] = (cell === true) ? false : true;
+        return newGrid;
+      });
+    }
   }
   mouseOver = (row, column) => () => {
     if (this.state.mouseDown) this.toggle(row, column)();
   }
-
   mouseDown = () => {
     this.setState({mouseDown: true});
   }
@@ -41,17 +42,28 @@ class Game extends Component {
     this.setState({mouseDown: false});
   }
 
+
+
   cycle = () => {
     const newGrid = life.getNextGrid(this.state.currentGrid);
     this.setState({currentGrid: newGrid});
   }
 
-  play = () => {
-    this.setState({cycles: (this.state.cycles -1)});
-  }
 
-  startGameCB = (cyclesInput) => () => {
-    this.setState({cycles: cyclesInput})
+
+  cycleInput = (e) => {
+    this.setState({cycles: e.target.value});
+  }
+  startGameCB = () => {
+    this.cycle()
+    this.setState((state) => {
+      const newState = {...state};
+      newState.play = true;
+      return newState;
+    });
+    return (this.state.cycles > 0 && this.state.play === true) ?
+    this.startGameCB() :
+    null;
   }
   pauseGameCB = () => {
     this.setState({play: false})
@@ -59,6 +71,8 @@ class Game extends Component {
   resetGridCB = () => {
     this.setState({play: false, currentGrid: life.getBlankGrid()})
   }
+
+
   loadCB = () => {
     console.log('loading selected grid');
   }
@@ -73,6 +87,7 @@ class Game extends Component {
   render() {
 
     const controlFunctions = {
+      cycleInput: this.cycleInput,
       startGame: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
       resetGrid: this.resetGridCB,
@@ -90,6 +105,7 @@ class Game extends Component {
           <h1>Conway's <em> Game of Life</em></h1>
         </header>
         <Controls
+          cycleValue={this.state.cycles}
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
           callBacks={controlFunctions}

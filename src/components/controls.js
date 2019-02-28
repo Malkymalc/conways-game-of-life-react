@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const Controls = (props) => {
 
-  const {startGameCB, pauseGameCB, resetGridCB, loadCB, saveCB} = props.callBacks;
-  const savedGrids = props.savedGrids;
+  const {
+    cycleInput, startGameCB, pauseGameCB, resetGridCB, loadCB, saveCB
+   } = props.callBacks;
+
+  const { cycleValue, savedGrids = false } = props;
   //
   // const options = savedGrids.map(savedGrid => {
   //   return (
@@ -15,7 +18,13 @@ const Controls = (props) => {
     <nav className='control-panel'>
 
       <label htmlFor="cycles">Number of Cycles: </label>
-      <input type="number" className="control" name='cycles'/>
+      <input
+        type="number"
+        className="control"
+        name='cycles'
+        onChange={cycleInput}
+        value={cycleValue}
+      />
 
       <label htmlFor="start">Start Game</label>
       <input type="button" className="control" name='start' onClick={startGameCB}/>
