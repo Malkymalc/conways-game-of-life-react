@@ -14,11 +14,19 @@ class Game extends Component {
 
     this.state = {
       savedGrids: null,
-      cycles: Infinity,
+      cycles: 20,
       currentGrid: startGrid,
       play: false,
       mouseDown: false
     }
+  }
+
+
+  cycle = () => {
+    setTimeout(() => {
+      const newGrid = life.getNextGrid(this.state.currentGrid);
+      this.setState({currentGrid: newGrid});
+    }, 1000);
   }
 
 
@@ -44,26 +52,14 @@ class Game extends Component {
 
 
 
-  cycle = () => {
-    const newGrid = life.getNextGrid(this.state.currentGrid);
-    this.setState({currentGrid: newGrid});
-  }
-
-
-
   cycleInput = (e) => {
     this.setState({cycles: e.target.value});
   }
+
+
   startGameCB = () => {
-    this.cycle()
-    this.setState((state) => {
-      const newState = {...state};
-      newState.play = true;
-      return newState;
-    });
-    return (this.state.cycles > 0 && this.state.play === true) ?
-    this.startGameCB() :
-    null;
+    console.log('start game firing');
+    this.setState({play: true});
   }
   pauseGameCB = () => {
     this.setState({play: false});
@@ -84,11 +80,20 @@ class Game extends Component {
     // getSavedGames
   }
 
+  async componentDidUpdate(){
+    console.log('cycles: ', this.state.cycles);
+    if (this.state.cycles > 0 && this.state.play === true){
+      await this.cycle();
+      const newCycles = this.state.cycles - 1;
+      this.setState({cycles: newCycles})
+    }
+  }
+
   render() {
 
     const controlFunctions = {
       cycleInput: this.cycleInput,
-      startGame: this.startGameCB,
+      startGameCB: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
       resetGridCB: this.resetGridCB,
       loadCB: this.loadCB,
