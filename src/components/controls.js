@@ -3,10 +3,10 @@ import React from 'react';
 const Controls = (props) => {
 
   const {
-    cycleInput, startGameCB, pauseGameCB, resetGridCB, loadCB, saveCB
+    cycleInputCB, saveGridNameInputCB, startGameCB, pauseGameCB, resetGridCB, loadCB, saveCB
    } = props.callBacks;
 
-  const { cycleValue, savedGrids = false } = props;
+  const { cycleValue, saveGridNameValue, savedGrids = false } = props;
   //
   // const options = savedGrids.map(savedGrid => {
   //   return (
@@ -22,7 +22,7 @@ const Controls = (props) => {
         type="number"
         className="control"
         name='cycles'
-        onChange={cycleInput}
+        onChange={cycleInputCB}
         value={cycleValue}
       />
 
@@ -48,7 +48,13 @@ const Controls = (props) => {
 
 
       <label htmlFor="save_name">Name Grid</label>
-      <input type="text" className="control" name='save_name'/>
+      <input
+        type="text"
+        className="control"
+        name='save_name'
+        value={saveGridNameValue}
+        onChange={saveGridNameInputCB}
+      />
 
       <label htmlFor="save">Save Grid</label>
       <input type="button" className="control" name='save' onClick={saveCB}/>

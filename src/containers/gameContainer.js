@@ -55,8 +55,11 @@ class Game extends Component {
 
 
 
-  cycleInput = (e) => {
+  cycleInputCB = (e) => {
     this.setState({cycles: e.target.value});
+  }
+  saveGridNameInputCB = (e) => {
+    this.setState({saveGridName: e.target.value});
   }
 
 
@@ -101,14 +104,16 @@ class Game extends Component {
       alert('Please pause game before saving');
       return;
     }
-    const gridToSave = {
-      gridName: this.state.saveGridName,
-      grid: this.state.currentGrid
-    }
-    const savedGrids = [...this.state.savedGrids];
-    const newSavedGrids = savedGrids.concat(gridToSave);
-    localStorage.setItem('savedGrids', newSavedGrids);
-    this.setState({savedGrids: newSavedGrids});
+    this.setState((prevState, props) => {
+      const gridToSave = {
+        gridName: prevState.saveGridName,
+        grid: prevState.currentGrid
+      }
+      const savedGrids = prevState.savedGrids;
+      const newSavedGrids = [].concat(savedGrids, gridToSave);
+      localStorage.setItem('savedGrids', JSON.stringify(newSavedGrids));
+      return {savedGrids: newSavedGrids};
+    });
   }
 
   componentDidMount(){
@@ -122,7 +127,8 @@ class Game extends Component {
   render() {
 
     const controlFunctions = {
-      cycleInput: this.cycleInput,
+      cycleInputCB: this.cycleInputCB,
+      saveGridNameInputCB: this.saveGridNameInputCB,
       startGameCB: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
       resetGridCB: this.resetGridCB,
@@ -141,6 +147,7 @@ class Game extends Component {
         </header>
         <Controls
           cycleValue={this.state.cycles}
+          saveGridNameValue={this.state.saveGridName}
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
           callBacks={controlFunctions}
