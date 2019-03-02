@@ -1,7 +1,7 @@
 .gridDiv {
   margin: auto;
-  width: 85vw;
-  height: 85vw;
+  width: 75vmin;
+  height: 75vmin;
   border: 1px solid black;
   display: grid;
   grid-template-rows: repeat(50, 1fr);

@@ -13,8 +13,9 @@ class Game extends Component {
     const startGrid = life.getBlankGrid();
 
     this.state = {
-      savedGrids: null,
-      cycles: 20,
+      savedGrids: [],
+      saveGridName: '',
+      cycles: 50,
       currentGrid: startGrid,
       play: false,
       mouseDown: false
@@ -23,10 +24,8 @@ class Game extends Component {
 
 
   cycle = () => {
-    setTimeout(() => {
-      const newGrid = life.getNextGrid(this.state.currentGrid);
-      this.setState({currentGrid: newGrid});
-    }, 1000);
+    const newGrid = life.getNextGrid(this.state.currentGrid);
+    this.setState({currentGrid: newGrid});
   }
 
 
@@ -60,33 +59,57 @@ class Game extends Component {
   startGameCB = () => {
     console.log('start game firing');
     this.setState({play: true});
+    setInterval(() => {
+      if (this.state.cycles > 0 && this.state.play === true){
+        // console.log('cycles: ', this.state.cycles);
+        this.cycle();
+        const newCycles = this.state.cycles - 1;
+        this.setState({cycles: newCycles});
+      } else {
+        if (this.state.play === true) this.setState({play: false});
+      }
+    }, 1000);
   }
+
   pauseGameCB = () => {
     this.setState({play: false});
   }
   resetGridCB = () => {
-    this.setState({play: 'banana', currentGrid: life.getBlankGrid()})
+    this.setState({play: false, currentGrid: life.getBlankGrid()})
   }
 
 
   loadCB = () => {
-    console.log('loading selected grid');
+    if (this.state.play === true){
+      alert('Please pause game before loading a saved Grid');
+      return;
+    }
+    const selectIndex = this.state.selectIndex;
+    const selectedGrid = [...this.state.savedGrids][selectIndex];
+    this.setState({currentGrid: selectedGrid.grid});
   }
+
   saveCB = () => {
-    console.log('saving selected grid');
+    if (this.state.play === true){
+      alert('Please pause game before saving');
+      return;
+    }
+    const gridToSave = {
+      gridName: this.state.saveGridName,
+      grid: this.state.currentGrid
+    }
+    const savedGrids = [...this.state.savedGrids];
+    const newSavedGrids = savedGrids.concat(gridToSave);
+    localStorage.setItem('savedGrids', newSavedGrids);
+    this.setState({savedGrids: newSavedGrids});
   }
 
   componentDidMount(){
     // getSavedGames
   }
 
-  async componentDidUpdate(){
-    console.log('cycles: ', this.state.cycles);
-    if (this.state.cycles > 0 && this.state.play === true){
-      await this.cycle();
-      const newCycles = this.state.cycles - 1;
-      this.setState({cycles: newCycles})
-    }
+  componentDidUpdate(){
+
   }
 
   render() {
