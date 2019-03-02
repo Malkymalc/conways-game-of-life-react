@@ -24,10 +24,12 @@ class Game extends Component {
 
 
   cycle = () => {
-    console.time('getNewGrid');
-    const newGrid = life.getNextGrid(this.state.currentGrid);
-    console.timeEnd('getNewGrid');
-    this.setState({currentGrid: newGrid});
+    console.time('renderNewGrid');
+    this.setState((prevState, props) => {
+      const newGrid = life.getNextGrid(prevState.currentGrid);
+      return {currentGrid: newGrid};
+    }, ()=> console.timeEnd('renderNewGrid')
+    );
   }
 
 
@@ -61,18 +63,19 @@ class Game extends Component {
   startGameCB = () => {
     console.log('start game firing');
     this.setState({play: true});
-    setInterval(() => {
+    const id = setInterval(() => {
+      console.log('cycles: ', this.state.cycles);
+      console.time('cycle');
       if (this.state.cycles > 0 && this.state.play === true){
-        console.log('cycles: ', this.state.cycles);
-        console.time('cycle');
         this.cycle();
         const newCycles = this.state.cycles - 1;
         this.setState({cycles: newCycles}, ()=> console.timeEnd('cycle'));
         // console.timeEnd('cycle')
       } else {
         if (this.state.play === true) this.setState({play: false});
+        clearInterval(id);
       }
-    }, 1000);
+    }, 2000);
   }
 
   pauseGameCB = () => {
