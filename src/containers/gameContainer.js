@@ -111,17 +111,18 @@ class Game extends Component {
       }
       const savedGrids = prevState.savedGrids;
       const newSavedGrids = [].concat(savedGrids, gridToSave);
-      localStorage.setItem('savedGrids', JSON.stringify(newSavedGrids));
       return {savedGrids: newSavedGrids};
     });
   }
 
   componentDidMount(){
-    // getSavedGames
+    const savedGrids = JSON.parse(localStorage.getItem('savedGrids'));
+    this.setState({savedGrids: savedGrids}, () => console.log(this.state.savedGrids));
+
   }
 
   componentDidUpdate(){
-
+    localStorage.setItem('savedGrids', JSON.stringify(this.state.savedGrids));
   }
 
   render() {
