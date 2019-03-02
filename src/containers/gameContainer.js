@@ -15,6 +15,7 @@ class Game extends Component {
     this.state = {
       savedGrids: [],
       saveGridName: '',
+      selectionIndex: null,
       cycles: 50,
       currentGrid: startGrid,
       play: false,
@@ -61,6 +62,9 @@ class Game extends Component {
   saveGridNameInputCB = (e) => {
     this.setState({saveGridName: e.target.value});
   }
+  selectionInputCB = (e) => {
+    this.setState({selectionIndex: e.target.value}, ()=> console.log(this.state.selectionIndex));
+  }
 
 
   startGameCB = () => {
@@ -73,7 +77,6 @@ class Game extends Component {
         this.cycle();
         const newCycles = this.state.cycles - 1;
         this.setState({cycles: newCycles}, ()=> console.timeEnd('cycle'));
-        // console.timeEnd('cycle')
       } else {
         if (this.state.play === true) this.setState({play: false});
         clearInterval(id);
@@ -93,10 +96,14 @@ class Game extends Component {
     if (this.state.play === true){
       alert('Please pause game before loading a saved Grid');
       return;
+    } else {
+      console.log(this.state.selectionIndex);
+      this.setState((prevState, props) => {
+        const selectIndex = prevState.selectionIndex;
+        const selectedGrid = prevState.savedGrids[selectIndex];
+        return {currentGrid: selectedGrid.grid};
+      });
     }
-    const selectIndex = this.state.selectIndex;
-    const selectedGrid = [...this.state.savedGrids][selectIndex];
-    this.setState({currentGrid: selectedGrid.grid});
   }
 
   saveCB = () => {
@@ -130,6 +137,7 @@ class Game extends Component {
     const controlFunctions = {
       cycleInputCB: this.cycleInputCB,
       saveGridNameInputCB: this.saveGridNameInputCB,
+      selectionInputCB: this.selectionInputCB,
       startGameCB: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
       resetGridCB: this.resetGridCB,

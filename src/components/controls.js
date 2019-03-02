@@ -3,16 +3,21 @@ import React from 'react';
 const Controls = (props) => {
 
   const {
-    cycleInputCB, saveGridNameInputCB, startGameCB, pauseGameCB, resetGridCB, loadCB, saveCB
+    cycleInputCB, saveGridNameInputCB, selectionInputCB,
+    startGameCB, pauseGameCB, resetGridCB,
+    loadCB, saveCB
    } = props.callBacks;
 
   const { cycleValue, saveGridNameValue, savedGrids = false } = props;
-  //
-  // const options = savedGrids.map(savedGrid => {
-  //   return (
-  //     <option value={savedGrid.grid}>{savedGrid.name}</option>
-  //   );
-  // });
+
+
+  const options = savedGrids.map((savedGrid, index) => {
+    return (
+      <option value={index} key={`sg${index}`}>{savedGrid.gridName}</option>
+    );
+  });
+  const defaultOption =  <option value={null} key={`sgDefault`}>Choose a grid to load</option>
+  options.unshift(defaultOption);
 
   return (
     <nav className='control-panel'>
@@ -37,10 +42,10 @@ const Controls = (props) => {
 
 
 
-      {/* <label htmlFor="saved_grids_selection">Select Grid</label>
-        <select name="" className='control' name='saved_grids_selection'>
+      <label htmlFor="saved_grids_selection">Select Grid</label>
+      <select className='control' name='saved_grids_selection' onChange={selectionInputCB}>
         {options}
-      </select> */}
+      </select>
 
       <label htmlFor="load">Load Selected Grid</label>
       <input type="button" className="control" name='load' onClick={loadCB}/>
