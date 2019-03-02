@@ -24,7 +24,9 @@ class Game extends Component {
 
 
   cycle = () => {
+    console.time('getNewGrid');
     const newGrid = life.getNextGrid(this.state.currentGrid);
+    console.timeEnd('getNewGrid');
     this.setState({currentGrid: newGrid});
   }
 
@@ -61,10 +63,12 @@ class Game extends Component {
     this.setState({play: true});
     setInterval(() => {
       if (this.state.cycles > 0 && this.state.play === true){
-        // console.log('cycles: ', this.state.cycles);
+        console.log('cycles: ', this.state.cycles);
+        console.time('cycle');
         this.cycle();
         const newCycles = this.state.cycles - 1;
-        this.setState({cycles: newCycles});
+        this.setState({cycles: newCycles}, ()=> console.timeEnd('cycle'));
+        // console.timeEnd('cycle')
       } else {
         if (this.state.play === true) this.setState({play: false});
       }
