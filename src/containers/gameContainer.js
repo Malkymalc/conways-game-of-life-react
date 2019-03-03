@@ -81,7 +81,7 @@ class Game extends Component {
         if (this.state.play === true) this.setState({play: false});
         clearInterval(id);
       }
-    }, 2000);
+    }, 350);
   }
 
   pauseGameCB = () => {

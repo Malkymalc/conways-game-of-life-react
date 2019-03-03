@@ -1,0 +1,76 @@
+
+
+
+#world {
+  display: grid;
+  width: 70vmin;
+  height: 70vmin;
+  margin: 0 auto;
+  text-align: center;
+  background: hsla(0,0%,0%,1);
+  border-radius: 1vw;
+  /* border: 2.5vw solid green; */
+  grid-template-columns: repeat(50, 1fr);
+  grid-gap: 0.5vmin;
+  padding: 0.5vmin;
+}
+
+/* ===== wrapper div for  cell ===== */
+.cell {
+  background: black;
+  border-radius: 2vw;
+  /* width: 0.7vmin;
+  height: 0.7vmin; */
+}
+
+
+/* ===== hide checkbox input element ===== */
+  .cell__input {
+    position: absolute;
+    left: -9999px;
+  }
+  .cell__label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: green;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* opacity: 0.1; */
+  }
+
+
+
+
+  /* @keyframes throb {
+    0%   {opacity: 1; border-color: hsla(360, 100%, 100%, 0.9); }
+    25%  {opacity: 0.75; border-color: hsla(300, 100%, 100%, 0.8); }
+    40% {opacity: 0.75; border-color: hsla(240, 100%, 100%, 0.7); }
+    55%  {opacity: 0.5; border-color: hsla(180, 100%, 100%, 0.6);}
+    70%  {opacity: 0.25; border-color: hsla(120, 100%, 100%, 0.5);}
+    85% {opacity: 0.75; border-color: hsla(60, 100%, 100%, 0.4);}
+    100% {opacity: 0.75; border-color: hsla(0, 100%, 100%, 0.3);}
+  }
+
+  .cell__input:checked +
+  .cell__label {
+    opacity: 1;
+    background: radial-gradient(circle,
+      hsla(360, 100%, 100%, 0.9),
+      hsla(300, 100%, 100%, 0.8),
+      hsla(240, 100%, 100%, 0.7),
+      hsla(180, 100%, 100%, 0.6),
+      hsla(120, 100%, 100%, 0.5),
+      hsla(60, 100%, 100%, 0.4),
+      hsla(0, 100%, 100%, 0.3)
+      );
+    animation-name: throb;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: both;
+  } */
