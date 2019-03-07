@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import '../styles/game.css'
+import '../styles/game.css';
+import life from '../models/life.js';
+
 import Header from '../components/header.js';
+import Modal from '../components/modal/modal.js';
+import SlideoutMenu from '../components/slideout_menu/slideout_menu.js';
+
 import Controls from '../components/controls.js';
 import Grid from '../components/grid/_1_grid.js';
-import life from '../models/life.js';
-import Modal from '../components/modal/modal.js';
+import Footer from '../components/footer.js';
 
 
 class Game extends Component {
@@ -30,7 +34,7 @@ class Game extends Component {
     this.setState((prevState) =>{
       const modalState = !prevState.modal;
       return {modal: modalState}
-    });
+    }, () => console.log(this.state.modal));
   }
 
   cycle = () => {
@@ -162,9 +166,8 @@ class Game extends Component {
         onMouseDown={this.mouseDown}
         onMouseUp={this.mouseUp}
       >
-
         <Header modalCB={this.modalCB}/>
-        <SettingsSlideout
+        <SlideoutMenu
           cycleValue={this.state.cycles}
           saveGridNameValue={this.state.saveGridName}
           savedGrids={this.state.savedGrids}
@@ -186,11 +189,9 @@ class Game extends Component {
           toggle={this.toggle}
           mouseOver={this.mouseOver}
         />
-
       </div>
     );
   }
-
 }
 
 export default Game;

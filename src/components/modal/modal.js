@@ -5,14 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Modal = (props) => {
 
   return (
-    <dialog open={props.modalState} onClick={props.modalCB}>
+    <dialog
+      className='dialog'
+      open={props.modalState}
+      onClick={props.modalCB}
+    >
 
-      <aside onClick={null}>
+      {/* <aside onClick={null}>
 
         <header>
           <h1>Conway's <em>Game of Life</em></h1>
           <button className='modal_close' onClick={props.modalCB}>
-            <FontAwesomeIcon icon='times-circle' />
+        <FontAwesomeIcon icon='times-circle' />
           </button>
           <p>test</p>
         </header>
@@ -21,7 +25,7 @@ const Modal = (props) => {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis nihil sed, impedit velit quam veritatis voluptas et, optio deleniti necessitatibus reprehenderit dolores sapiente quas possimus! Odit a molestias dolore numquam.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis nihil sed, impedit velit quam veritatis voluptas et, optio deleniti necessitatibus reprehenderit dolores sapiente quas possimus! Odit a molestias dolore numquam.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis nihil sed, impedit velit quam veritatis voluptas et, optio deleniti necessitatibus reprehenderit dolores sapiente quas possimus! Odit a molestias dolore numquam.</p>
-      </aside>
+      </aside> */}
 
     </dialog>
   );
