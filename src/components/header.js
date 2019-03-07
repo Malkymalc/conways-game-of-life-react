@@ -25,6 +25,7 @@ const Header = (props) => {
         class="about"
         role="button"
         aria-label="about"
+        onClick={props.modalCB}
       >
         <FontAwesomeIcon icon="question" />
       </div>

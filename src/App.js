@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faQuestion, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import Game from './containers/gameContainer.js';
 import withSplash from './components/withSplash.js';
+import './styles/global.css'
 
-library.add(faBars, faQuestion);
+library.add(faBars, faQuestion, faTimesCircle);
 
 
 class App extends Component {

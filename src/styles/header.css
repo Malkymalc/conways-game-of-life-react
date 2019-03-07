@@ -26,7 +26,9 @@
 
 .header_title {
   font-family: 'Candal', sans-serif;
-  font-size: 8.5vw;
+  font-variant: small-caps;
+  font-size: calc(1rem + 3.5vw);
   color: hsla(125, 55%, 50%, 1);
   text-shadow: 0 0 20px hsla(225, 40%, 40%, 1);
+  letter-spacing: calc()
 }

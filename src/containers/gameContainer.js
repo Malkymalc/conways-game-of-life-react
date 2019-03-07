@@ -4,6 +4,7 @@ import Header from '../components/header.js';
 import Controls from '../components/controls.js';
 import Grid from '../components/_1_grid.js';
 import life from '../models/life.js';
+import Modal from '../components/modal/modal.js';
 
 
 class Game extends Component {
@@ -20,10 +21,17 @@ class Game extends Component {
       cycles: 50,
       currentGrid: startGrid,
       play: false,
-      mouseDown: false
+      mouseDown: false,
+      modal: false
     }
   }
 
+  modalCB = () => {
+    this.setState((prevState) =>{
+      const modalState = !prevState.modal;
+      return {modal: modalState}
+    });
+  }
 
   cycle = () => {
     console.time('renderNewGrid');
@@ -152,7 +160,7 @@ class Game extends Component {
         onMouseDown={this.mouseDown}
         onMouseUp={this.mouseUp}
       >
-        <Header />
+        <Header modalCB={this.modalCB}/>
         <Controls
           cycleValue={this.state.cycles}
           saveGridNameValue={this.state.saveGridName}
@@ -164,6 +172,10 @@ class Game extends Component {
           grid={this.state.currentGrid}
           toggle={this.toggle}
           mouseOver={this.mouseOver}
+        />
+        <Modal
+          modalState={this.state.modal}
+          modalCB={this.modalCB}
         />
       </div>
     );

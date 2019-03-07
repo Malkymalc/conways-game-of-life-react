@@ -2,8 +2,8 @@
   margin: auto;
   width: 90vmin;
   height: 90vmin;
-  border: 0.1vmin solid black;
-  background-color: hsla(360, 100%, 5%, 1);
+  border-radius: 2vmin;
+  background-color: hsla(225, 40%, 40%, 1);
   display: grid;
   grid-template-rows: repeat(50, 1fr);
 }
@@ -15,7 +15,6 @@
 }
 
 .cellDiv {
-  border: 0.1vh solid black;
   border-radius: 50%;
   background-color: green;
   max-height: calc(90vw/50);
