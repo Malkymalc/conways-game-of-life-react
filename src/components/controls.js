@@ -11,11 +11,13 @@ const Controls = (props) => {
   const { cycleValue, saveGridNameValue, savedGrids = false } = props;
 
 
-  const options = savedGrids.map((savedGrid, index) => {
-    return (
-      <option value={index} key={`sg${index}`}>{savedGrid.gridName}</option>
-    );
-  });
+  const options = (!savedGrids) ? []
+    : savedGrids.map((savedGrid, index) => {
+        return (
+          <option value={index} key={`sg${index}`}>{savedGrid.gridName}</option>
+        );
+      });
+    
   const defaultOption =  <option value={null} key={`sgDefault`}>Choose a grid to load</option>
   options.unshift(defaultOption);
 

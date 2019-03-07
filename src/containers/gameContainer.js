@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/game.css'
+import Header from '../components/header.js';
 import Controls from '../components/controls.js';
 import Grid from '../components/_1_grid.js';
 import life from '../models/life.js';
@@ -151,9 +152,7 @@ class Game extends Component {
         onMouseDown={this.mouseDown}
         onMouseUp={this.mouseUp}
       >
-        <header className="header">
-          <h1>Conway's <em> Game of Life</em></h1>
-        </header>
+        <Header />
         <Controls
           cycleValue={this.state.cycles}
           saveGridNameValue={this.state.saveGridName}
@@ -162,7 +161,6 @@ class Game extends Component {
           callBacks={controlFunctions}
         />
         <Grid
-          className='grid'
           grid={this.state.currentGrid}
           toggle={this.toggle}
           mouseOver={this.mouseOver}

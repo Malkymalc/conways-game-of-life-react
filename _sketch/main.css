@@ -1,0 +1,142 @@
+html, body, div {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  background-color: hsla(225, 40%, 9%, 1);
+  animation: 1s linear 0s 1 normal none running flash_page,
+             1s linear 1s 1 normal none running flash_page,
+             1s linear 2s 1 normal none running flash_page,
+             1s linear 3s 1 normal forwards running flash_page;
+}
+
+.hill_back {
+  z-index: 3;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  clip-path: ellipse(89% 56% at 67% 67%);
+  background-color: hsla(225, 20%, 12%, 1);
+  animation: 1s linear 1s 1 normal none running flash_back,
+             1s linear 2s 1 normal none running flash_back,
+             1s linear 3s 1 normal forwards running flash_back;
+}
+
+@keyframes flash_page {
+  0% { background-color: hsla(225, 40%, 9%, 1); }
+  15% { background-color: hsla(225, 40%, 50%, 1); }
+  30% { background-color: hsla(225, 40%, 12%, 1); }
+  45% { background-color: hsla(225, 40%, 75%, 1); }
+  60% { background-color: hsla(225, 40%, 12%, 1); }
+  75% { background-color: hsla(225, 40%, 100%, 1); }
+}
+@keyframes flash_back {
+  0% { background-color: hsla(225, 20%, 12%, 1); }
+  15% { background-color: hsla(225, 20%, 50%, 1); }
+  30% { background-color: hsla(225, 20%, 12%, 1); }
+  45% { background-color: hsla(225, 20%, 75%, 1); }
+  60% { background-color: hsla(225, 20%, 12%, 1); }
+  75% { background-color: hsla(225, 20%, 100%, 1); }
+}
+@keyframes flash_front {
+  0% { background-color: hsla(225, 20%, 15%, 1); }
+  15% { background-color: hsla(225, 20%, 50%, 1); }
+  30% { background-color: hsla(225, 20%, 12%, 1); }
+  45% { background-color: hsla(225, 20%, 75%, 1); }
+  60% { background-color: hsla(225, 20%, 12%, 1); }
+  75% { background-color: hsla(225, 20%, 100%, 1); }
+}
+@keyframes flash_pool {
+  0% { background-color: hsla(225, 40%, 40%, 1); }
+  15% { background-color: hsla(225, 40%, 50%, 1); }
+  30% { background-color: hsla(225, 40%, 40%, 1); }
+  45% { background-color: hsla(225, 40%, 75%, 1); }
+  60% { background-color: hsla(225, 40%, 40%, 1); }
+  75% { background-color: hsla(225, 40%, 100%, 1); }
+}
+
+.hill_front {
+  z-index: 5;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  clip-path: ellipse(97% 56% at 23% 75%);
+  background-color: hsla(225, 20%, 15%, 1);
+  animation: 1s linear 2s 1 normal none running flash_front,
+             1s linear 3s 1 normal forwards running flash_front;
+}
+
+.pool {
+  z-index: 9;
+  height: 25vmax;
+  width: 90vw;
+  position: fixed;
+  bottom: 15vmax;
+  left: 5vw;
+  clip-path: ellipse(50% 40% at 50% 50%);
+  transform:rotateX(120deg);
+  background-color: hsla(225, 40%, 40%, 1);
+  animation: 1s linear 2s 1 normal none running flash_pool,
+             1s linear 3s 1 normal forwards running flash_pool;
+}
+
+.pool_back {
+  z-index: 7;
+  height: 25vmax;
+  width: 90vw;
+  position: fixed;
+  bottom: 21vmax;
+  left: 5vw;
+  clip-path: ellipse(50% 40% at 50% 0%);
+  transform:rotateX(120deg);
+  background-color: hsla(228, 38%, 42%, 1);
+  animation: 1s linear 2s 1 normal none running flash_pool,
+             1s linear 3s 1 normal forwards running flash_pool;
+}
+
+.fork_small {
+  z-index: 2;
+  background-color: hsla(60, 50%, 50%, 0);
+  animation: 1s linear 0s 1 normal none running fork_small;
+}
+
+@keyframes fork_small {
+  0% { background-color: hsla(60, 50%, 50%, 0);}
+  15% { background-color: hsla(60, 50%, 50%, 1);}
+  30% { background-color: hsla(60, 100%, 50%, 1);}
+  45% { background-color: hsla(60, 100%, 100%, 1);}
+  60% { background-color: hsla(60, 100%, 50%, 1);}
+  75% { background-color: hsla(60, 50%, 50%, 1);}
+  100% { background-color: hsla(60, 50%, 50%, 0);}
+}
+
+
+.title_container {
+  z-index: 8;
+  height: 25vw;
+  width: 85vw;
+  position: fixed;
+  text-align: center;
+  bottom: 50vmax;
+  left: 7.5vw;
+  background-color: hsla(0,0,0,0);
+  font-family: 'Candal', sans-serif;
+  font-size: 15vw;
+  color: hsla(125, 65%, 60%, 0);
+  animation: 0.2s linear 4s 5 normal reverse running title_appear;
+}
+
+@keyframes title_appear {
+  0% { color: hsla(60, 50%, 50%, 0);}
+  33% { color: hsla(60, 50%, 50%, 1);}
+  66% { color: hsla(60, 100%, 50%, 1);}
+  100% { color: hsla(60, 100%, 100%, 1);}
+}

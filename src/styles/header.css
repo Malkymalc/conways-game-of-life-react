@@ -1,0 +1,32 @@
+.header {
+  height: 10vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  background-color: hsla(225, 40%, 13%, 1);
+}
+
+.menu, .header_title, .about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(360, 0%, 0%, 0);
+  color: white;
+
+}
+
+.menu, .about {
+  font-size: 4vmax;
+  transition: color 0.2s ease-in;
+}
+
+  .menu:hover, .about:hover {
+    color: hsla(125, 65%, 60%, 1);
+  }
+
+.header_title {
+  font-family: 'Candal', sans-serif;
+  font-size: 8.5vw;
+  color: hsla(125, 55%, 50%, 1);
+  text-shadow: 0 0 20px hsla(225, 40%, 40%, 1);
+}
