@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/_3_cell.css';
+import '../../styles/_3_cell.css';
 
 
 const Cell = (props) => {

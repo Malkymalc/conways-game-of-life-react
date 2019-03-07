@@ -11,9 +11,9 @@ const Modal = (props) => {
 
         <header>
           <h1>Conway's <em>Game of Life</em></h1>
-          <div className='modal_close' onClick={props.modalCB}>
+          <button className='modal_close' onClick={props.modalCB}>
             <FontAwesomeIcon icon='times-circle' />
-          </div>
+          </button>
           <p>test</p>
         </header>
 

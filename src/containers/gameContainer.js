@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/game.css'
 import Header from '../components/header.js';
 import Controls from '../components/controls.js';
-import Grid from '../components/_1_grid.js';
+import Grid from '../components/grid/_1_grid.js';
 import life from '../models/life.js';
 import Modal from '../components/modal/modal.js';
 
@@ -160,23 +160,35 @@ class Game extends Component {
         onMouseDown={this.mouseDown}
         onMouseUp={this.mouseUp}
       >
+
         <Header modalCB={this.modalCB}/>
-        <Controls
+        <SettingsSlideout
           cycleValue={this.state.cycles}
           saveGridNameValue={this.state.saveGridName}
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
-          callBacks={controlFunctions}
-        />
-        <Grid
-          grid={this.state.currentGrid}
-          toggle={this.toggle}
-          mouseOver={this.mouseOver}
+          settingsCBs={settingsFunctions}
         />
         <Modal
           modalState={this.state.modal}
           modalCB={this.modalCB}
         />
+
+
+        <Controls
+          cycleValue={this.state.cycles}
+          saveGridNameValue={this.state.saveGridName}
+          savedGrids={this.state.savedGrids}
+          cycles={this.state.cycles}
+          controlCBs={controlFunctions}
+        />
+        
+        <Grid
+          grid={this.state.currentGrid}
+          toggle={this.toggle}
+          mouseOver={this.mouseOver}
+        />
+
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/splash.css'
+import '../../styles/splash.css'
 import SplashScreen from './splashScreen.js';
 
 

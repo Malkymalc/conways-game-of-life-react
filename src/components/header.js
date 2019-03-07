@@ -8,21 +8,21 @@ const Header = (props) => {
   return (
     <header className="header">
       <div
-        class="menu"
+        className="menu"
         role="button"
         aria-label="menu"
       >
         <FontAwesomeIcon icon="bars" />
       </div>
       <div
-        class="header_title"
+        className="header_title"
         role="title"
         aria-label="title"
       >
         <span>Game of Life</span>
       </div>
       <div
-        class="about"
+        className="about"
         role="button"
         aria-label="about"
         onClick={props.modalCB}

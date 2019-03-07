@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faQuestion, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import Game from './containers/gameContainer.js';
-import withSplash from './components/withSplash.js';
+import withSplash from './components/splash/withSplash.js';
 import './styles/global.css'
 
 library.add(faBars, faQuestion, faTimesCircle);

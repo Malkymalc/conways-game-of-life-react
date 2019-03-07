@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/splash.css'
+import '../../styles/splash.css'
 
 const SplashScreen = () => {
 
