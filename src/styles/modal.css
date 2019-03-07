@@ -35,6 +35,7 @@ dialog {
 
   .modal_close {
     position: absolute;
-    top: 1vh;
-    right: 1vh;
+    top: 3vmax;
+    right: calc(1vmax + 5vw);
+    font-size: calc(7vmax - 1vw);
   }

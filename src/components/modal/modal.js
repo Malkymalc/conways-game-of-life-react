@@ -11,11 +11,10 @@ const Modal = (props) => {
 
         <header>
           <h1>Conway's <em>Game of Life</em></h1>
-          <FontAwesomeIcon
-            className="modal_close"
-            icon="faTimesCircle"
-            onClick={props.modalCB}
-          />
+          <div className='modal_close' onClick={props.modalCB}>
+            <FontAwesomeIcon icon='times-circle' />
+          </div>
+          <p>test</p>
         </header>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, possimus, nisi! Assumenda, dicta voluptatem dolor? Corporis doloremque consectetur fuga eligendi harum, officia dignissimos debitis, quibusdam, ea voluptatum nesciunt! Nam, laborum!</p>
