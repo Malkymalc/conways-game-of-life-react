@@ -143,15 +143,17 @@ class Game extends Component {
 
   render() {
 
-    const controlFunctions = {
+    const settingsFunctions = {
       cycleInputCB: this.cycleInputCB,
       saveGridNameInputCB: this.saveGridNameInputCB,
       selectionInputCB: this.selectionInputCB,
+      loadCB: this.loadCB,
+      saveCB: this.saveCB
+    }
+    const controlFunctions = {
       startGameCB: this.startGameCB,
       pauseGameCB: this.pauseGameCB,
       resetGridCB: this.resetGridCB,
-      loadCB: this.loadCB,
-      saveCB: this.saveCB
     }
 
     return (
@@ -167,7 +169,7 @@ class Game extends Component {
           saveGridNameValue={this.state.saveGridName}
           savedGrids={this.state.savedGrids}
           cycles={this.state.cycles}
-          settingsCBs={settingsFunctions}
+          callBacks={settingsFunctions}
         />
         <Modal
           modalState={this.state.modal}
@@ -176,13 +178,9 @@ class Game extends Component {
 
 
         <Controls
-          cycleValue={this.state.cycles}
-          saveGridNameValue={this.state.saveGridName}
-          savedGrids={this.state.savedGrids}
-          cycles={this.state.cycles}
-          controlCBs={controlFunctions}
+          callBacks={controlFunctions}
         />
-        
+
         <Grid
           grid={this.state.currentGrid}
           toggle={this.toggle}
